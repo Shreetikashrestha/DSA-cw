@@ -38,6 +38,8 @@ public class AVLTree {
         }
         if(balancefactor>1&& data<root.left.data){
             //lr
+            root.left=leftRotation(root.left);
+            return rightRotation(root);
         }
         if(balancefactor<-1 && data>root.right.data){
             //rr
@@ -46,6 +48,8 @@ public class AVLTree {
         }
         if(balancefactor<-1 && data<root.right.data){
             //rl
+            root.right=rightRotation(root.right);
+            return leftRotation(root);
         }
         return root;
     }
